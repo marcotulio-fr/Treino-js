@@ -1,0 +1,165 @@
+:root {
+    --cinza-fundo: #F8F9FA;
+    --azul-principal: #054594;
+    --amarelo-detalhe: #fbd304;
+    --corfonte-botaomenu: rgb(255, 255, 255);
+    --azul-detalhe: #789dc4;
+    --cor-preco: orange;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cinza-fundo);
+    line-height: 1.6;
+}
+
+header {
+    position: sticky;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imagemlogo {
+    width: 200px;
+    margin: 15px;
+    padding: 15px;
+
+}
+
+h1 {
+    color: var(--azul-principal);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.botaopesquisa {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    margin: 15px;
+    padding: 15px;
+    border-color: var(--azul-principal);
+    color: var(--azul-principal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
+ 
+.botaomenu {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--azul-principal);
+    color: var(--corfonte-botaomenu);
+    cursor: pointer;
+    border: none;
+    transition: 0.5;
+}
+
+.botaomenu:hover {
+    background-color: var(--azul-detalhe);
+}
+
+.botaomenu.ativo {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--azul-detalhe);
+    color: var(--corfonte-botaomenu);
+    cursor: pointer;
+    border: none;
+    transition: 0.5s;
+
+}
+
+.grid-produto {
+    padding: 20px;
+    background-color: var(--cinza-fundo);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.grid-produto:hover {
+    transform: translateY(-1rem);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+.frameprodutos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.imagem-produto {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.Info-produto {
+    padding: 1.5rem;
+}
+
+.nome-produto {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--azul-principal);
+}
+
+.descricao-produto {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.preco-produto {
+    font-size: 1.5rem;
+    color: var(--cor-preco);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.botao-produto {
+    width: 100%;
+    background-color: var(--azul-principal);
+    color: var(--corfonte-botaomenu);
+    border: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-produto:hover {
+    background-color: var(--azul-detalhe);
+}
+
+footer {
+    margin: 20px;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
