@@ -54,7 +54,7 @@ const listReprovado = newList.filter(total => {
 
 })
 
-console.log(listReprovado)
+// console.log(listReprovado)
 // console.log(listAprovado)
 // console.log(newList)
 // console.log((mediaB1 / listStudent.length).toFixed(2) + ' Está é a media do b1')
@@ -64,6 +64,7 @@ console.log(listReprovado)
 // console.log(listStudent.length + ' Essa e quantidade de alunos')
 
 let containerAlunos = document.querySelector(".frameprodutos")
+let textoPesquisa = ""
 let categoriaAtual = "todos"
 let input = document.querySelector(".botaopesquisa")
 let todosBotoes = document.querySelectorAll(".botaomenu")
@@ -72,11 +73,20 @@ function mostrarAlunos() {
 
     let htmlAlunos = ""
 
-    newList.forEach(user => {
+    let alunosFiltrados = newList.filter(prd => {
+
+        let passouCategoria = (categoriaAtual === "todos" || prd.status === categoriaAtual)
+        let passouPesquisa = prd.name.toLocaleLowerCase().includes(textoPesquisa.toLocaleLowerCase())
+
+        return passouPesquisa && passouCategoria
+
+    })
+
+    alunosFiltrados.forEach(user => {
         htmlAlunos = htmlAlunos + `
             <div class="grid-produto" >
                     <h3 class="nome-produto">Nome do Aluno:<br> ${user.name}</h3>
-                    <p class="descricao-produto">A sua nota foi: ${user.total}</p>
+                    <p class="descricao-produto">A sua nota foi: ${user.total} pontos</p>
                     <p class="preco-produto">  ${user.status}</p>
                     </div>
 
@@ -87,3 +97,39 @@ function mostrarAlunos() {
     containerAlunos.innerHTML = htmlAlunos
 
 }
+
+
+function pesquisar() {
+    textoPesquisa = input.value
+    mostrarAlunos()
+}
+
+function trocarCategoria(status) {
+    categoriaAtual = status
+
+    todosBotoes.forEach(botao => {
+        botao.classList.remove("ativo")
+        if (botao.getAttribute("data-category") === status) {
+            botao.classList.add("ativo")
+        }
+
+
+    })
+    mostrarAlunos()
+
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+mostrarAlunos()
+input.addEventListener('input', pesquisar)
+
+todosBotoes.forEach (botao => {
+    botao.addEventListener('click', () => {
+        let categoria = botao.getAttribute("data-category")
+    trocarCategoria(categoria)
+    
+    })
+})
+
+
+})
