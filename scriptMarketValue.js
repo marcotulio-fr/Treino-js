@@ -1,15 +1,15 @@
-const empresas = [
-    { name: 'Samsung', marketValue: 50, CEO: 'Kim Hyun Suk', foundedOn: 1938 },
-    { name: 'Microsoft', marketValue: 415, CEO: 'Satya Nadella', foundedOn: 1975 },
-    { name: 'Intel', marketValue: 117, CEO: 'Brian Krzanich', foundedOn: 1968 },
-    { name: 'Facebook', marketValue: 383, CEO: 'Mark Zuckerberg', foundedOn: 2004 },
-    { name: 'Spotify', marketValue: 30, CEO: 'Daniel Ek', foundedOn: 2006 },
-    { name: 'Apple', marketValue: 845, CEO: 'Tim Cook', foundedOn: 1976 },
+const company = [
+    { name: 'samsung', ceo: 'Pietro', foundedOn: 1958, value: 90 },
+    { name: 'spotify', ceo: 'Lara', foundedOn: 2006, value: 30 },
+    { name: 'lg', ceo: 'Marco Tulio', foundedOn: 1990, value: 130 },
+    { name: 'mondial', ceo: 'Mariah', foundedOn: 2002, value: 256 },
+    { name: 'positivo', ceo: 'Michele', foundedOn: 1991, value: 137 }
 ]
 
-const valueEmpresas = empresas.map(value => {
-    value.marketValue = value.marketValue - value.marketValue / 10
-    return empresas
-
-})
-console.log(valueEmpresas)
+const companyValue = company.map(value => {
+    value.value = value.value - value.value / 10
+    return value
+}).filter(value => value.foundedOn < 2000).reduce((acc, value) => {
+    return acc + value.value
+}, 0)
+console.log("O valor de todas as companhias é: R$" + companyValue)
